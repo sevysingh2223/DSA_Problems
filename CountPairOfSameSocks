@@ -1,0 +1,47 @@
+import java.util.HashSet;
+import java.util.*;
+public class sockss {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Number Of Socks");
+        int n = sc.nextInt();
+        int[] ar = new int[n];
+        System.out.println("Enter all socks ");
+        for (int i = 0; i < ar.length; i++) 
+        {
+            ar[i] = sc.nextInt();
+        }
+        int k=sockss(n, ar);
+        System.out.println("NO OF PAIRS ARE : " + k);
+
+        
+    }
+    static int sockss(int n, int[] ar)
+    {
+        HashSet<Integer> set = new HashSet<Integer>();
+        int count =0;
+        for(int i=0;i<n;i++)
+        {
+            int element =ar[i];
+            if(set.contains(element))
+            {
+                set.remove(element);
+                count=count+1;
+
+            }
+            else
+            {
+                set.add(element);
+            }
+        
+        
+        }
+        return count;
+        //System.out.println(count);
+    
+    }
+}  
+
+
+    
+
