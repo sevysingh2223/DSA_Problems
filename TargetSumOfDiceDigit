@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+public class TargetSumOfDiceDigit {
+    static ArrayList<String> dicePos(int source, int target){
+        if(source == target){
+            ArrayList<String> list = new ArrayList<>();
+            list.add("");
+            return list;
+        }
+        if(source>target){
+            ArrayList<String> list = new ArrayList<>();
+            return list;
+        }
+        ArrayList<String> finalres = new ArrayList<>();
+        for(int dice = 1 ; dice<=6; dice++){
+            int currentvalue = source + dice;
+            ArrayList<String> list = dicePos(currentvalue, target);
+            for(String temp : list){
+                finalres.add(temp + dice);
+            }
+        }
+        return finalres;
+    }
+    public static void main(String[] args) {
+        System.out.println(dicePos(0,6));
+        
+    }
+    
+}
